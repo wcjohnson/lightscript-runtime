@@ -1,0 +1,38 @@
+require('core-js/es6/symbol')
+
+DEFINE_PROPERTY = "define" + "Property"
+
+defineMatch(O, fn) ->
+  Object[DEFINE_PROPERTY](O, Symbol.matches, {
+    writable: false
+    configurable: false
+    enumerable: false
+    value: fn
+  })
+
+if !Symbol.matches:
+  Object[DEFINE_PROPERTY](Symbol, "matches", {
+    configurable: false
+    writable: false
+    value: Symbol("matches")
+  })
+
+  // Classes
+  defineMatch(Function.prototype, (x) -> x instanceof this)
+  // Primitives
+  defineMatch(Number, (x) -> typeof x == "number")
+  defineMatch(String, (x) -> typeof x == "string")
+  defineMatch(Boolean, (x) -> typeof x == "boolean")
+  // Regexp
+  defineMatch(RegExp.prototype, (x) -> this.test(x))
+  // Set
+  if typeof(Set) !== "undefined":
+    defineMatch(Set.prototype, (x) -> this.has(x))
+
+export isMatch(atom, discriminant) ->
+  Boolean(
+    if discriminant~looseNotEq(null) and Symbol.matches in atom:
+      atom[Symbol.matches](discriminant)
+    else:
+      atom === discriminant
+  )

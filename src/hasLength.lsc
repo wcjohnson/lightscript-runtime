@@ -1,0 +1,7 @@
+export hasLength(arr, minLength, maxLength) ->
+  arr~looseNotEq(null) and
+  typeof arr !== "function" and
+  (maxLength === undefined ?
+    (minLength ? arr.length >= minLength : arr.length >= 0) :
+    (arr.length >= minLength && arr.length <= maxLength)
+  )
