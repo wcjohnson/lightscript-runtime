@@ -1,4 +1,4 @@
-export hasLength(arr, minLength, maxLength) ->
+module.exports = hasLength(arr, minLength, maxLength) ->
   arr~looseNotEq(null) and
   typeof arr !== "function" and
   (maxLength === undefined ?

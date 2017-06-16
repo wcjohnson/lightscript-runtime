@@ -29,7 +29,7 @@ if !Symbol.matches:
   if typeof(Set) !== "undefined":
     defineMatch(Set.prototype, (x) -> this.has(x))
 
-export isMatch(atom, discriminant) ->
+module.exports = isMatch(atom, discriminant) ->
   Boolean(
     if discriminant~looseNotEq(null) and Symbol.matches in atom:
       atom[Symbol.matches](discriminant)

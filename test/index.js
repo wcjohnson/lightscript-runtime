@@ -1,8 +1,8 @@
 var assert = require("assert")
 
-var hasLength = require("../hasLength").hasLength
-var hasProps = require("../hasProps").hasProps
-var isMatch = require("../isMatch").isMatch
+var hasLength = require("../hasLength")
+var hasProps = require("../hasProps")
+var isMatch = require("../isMatch")
 
 describe('hasLength', () => {
   it('should work', () => {
