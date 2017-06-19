@@ -31,7 +31,7 @@ if !Symbol.matches:
 
 module.exports = isMatch(atom, discriminant) ->
   Boolean(
-    if atom~looseNotEq(null) and Symbol.matches in atom:
+    if atom~looseNotEq(null) and atom[Symbol.matches]:
       atom[Symbol.matches](discriminant)
     else:
       atom === discriminant
