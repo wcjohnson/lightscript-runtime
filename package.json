@@ -1,6 +1,6 @@
 {
   "name": "@oigroup/lightscript-runtime",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Runtime for code built with the LightScript compiler.",
   "main": "index.js",
   "scripts": {
