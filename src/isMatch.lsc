@@ -1,4 +1,4 @@
-require('core-js/es6/symbol')
+Symbol = require('es6-symbol')
 
 DEFINE_PROPERTY = "define" + "Property"
 
